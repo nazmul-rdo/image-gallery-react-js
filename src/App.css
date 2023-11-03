@@ -1,0 +1,255 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: #b7c9dd;
+}
+
+section{
+  width: 1050px;
+  margin: auto;
+}
+
+.top-continer{
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  height: 50px;
+  border-bottom: 2px solid #b7c9dd;  
+  margin-top: 5%;
+}
+
+.image-gallery {
+  padding: 30px;
+  background-color: #f9f9f9;
+  border: 2px solid #f9f9f9; 
+  border-radius:0 0 10px 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px;
+  justify-items: center;
+  transition: transform 0.3s;
+}
+
+.image-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #b7c9dd;
+  border-radius: 5px !important;
+  overflow: hidden;
+  grid-row-end: span 2;
+  transition: transform 0.4s;
+}
+
+.image-container.dragging{
+  border: 3px solid #b7c9dd;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: move;
+}
+.dragging img{
+  opacity: 0;
+}
+
+.image-container:first-child {
+  grid-column-end: span 2;
+  grid-row-end: span 4;
+  width: 350px;
+  height: 320px;
+}
+
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+
+}
+
+.image-container:hover .overlay{
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.image-container:hover .checkbox-button{
+  opacity: 1;
+}
+
+.checkbox-button {
+  opacity: 0;
+  top: 15px; 
+  left: 15px; 
+  width: 20px; 
+  height: 20px;
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+.overlay {
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.file-selected input{
+  padding: 32px !important;
+  cursor: pointer;
+}
+
+.overlay input[type="checkbox"] {
+  position: absolute; 
+  padding: 2px;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+.top-continer {
+  width: 1050px;
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #b7c9dd;
+}
+
+.header {
+  padding: 0 20px;
+}
+
+.file-selected{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+ gap: 5px;
+}
+
+input.header-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.delete-button-container {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+  padding: 0 20px;
+}
+
+.delete-button-container p {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.delete-button {
+  padding: 8px 16px;
+  background-color: #ff0000;
+  color: #ff0000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #cc0000;
+  color: #f9f9f9;
+  
+}
+
+/* image input design */
+
+.image-container.input-item{
+  gap: 10px;
+  border: 1px dashed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-botton{
+  cursor: pointer;
+}
+.image-container.input-item input{
+  display: none;
+  visibility: hidden;
+}
+
+.image-container.input-item label{
+  cursor: pointer;
+ 
+}
+.image-container.input-item label svg{
+  font-size: 60px;
+}
+
+.feature-button,
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #0e0d0d;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.feature-button:hover,
+.delete-button:hover {
+  opacity: 0.8;
+}
+
+.selected {
+  opacity: 1;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 980px) {
+  .image-gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .image-container:first-child{
+    width: 400px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-gallery {
+    gap: 25px;
+    grid-template-columns: repeat(3, 1fr); 
+  }
+  .image-container {
+    width: 180px;
+    height: 180px;
+  }
+  .image-container:first-child {
+    width: 520px;
+    height: 420px;
+  }
+}
+@media (max-width: 350px) {
+  .image-gallery {
+    gap: 50px;
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .image-container {
+    width: 250px;
+    height: 250px;
+  }
+  .image-container:first-child  {
+    width: 500px;
+    height: 420px;
+  }
+}
